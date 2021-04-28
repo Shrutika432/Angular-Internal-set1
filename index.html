@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        
+        <div ng-app="MyApp">
+            <div ng-controller="MyController">
+                
+                <br><br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Department</th>
+                        <th>Basic Salary</th>
+                        <th>Increment</th>
+                        <th>Operations</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" ng-model="fname" placeholder="Enter FirstName"></td>
+                        <td><input type="text" ng-model="lname" placeholder="Enter LastName"></td>
+                        <td><input type="text" ng-model="dept" placeholder="Enter Department"></td>
+                        <td><input type="text" ng-model="bsalary" placeholder="Enter Basic salary"></td>
+                        <td><input type="text" ng-model="inc" placeholder="Increment"></td>
+                        <td><button class="btn btn-primary" ng-click='addRow()'>ADD EMP</button></td>
+                    </tr>
+                    <tr>
+                        <td>{{fname}}</td>
+                        <td>{{lname}}</td>
+                        <td>{{dept}}</td>
+                        <td>{{bsalary}}</td>
+                        <td>{{inc}}</td>
+                        <td>:: DATA</td>
+                    </tr>
+                    <tr ng-repeat="val in employee track by $index">
+                        <td>{{val.fname}}</td>
+                        <td>{{val.lname}}</td>
+                        <td>{{val.dept}}</td>
+                        <td>{{val.bsalary}}</td>
+                        <td>{{val.inc}}</td>
+                        <td><button class="btn btn-danger" ng-click='DeleteRow(val)'>DELETE EMP</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="employee.js"></script>
+    </body>
+</html>
